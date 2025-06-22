@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Electric Vehicle Demo</title>
+</head>
+<body>
+  <h1>Electric Vehicle Info</h1>
+  <div id="output"></div>
+
+  <script type="module">
+    class Vehicle {
+      constructor(name, model) {
+        this.name = name;
+        this.model = model;
+      }
+
+      getDetails() {
+        return `${this.name} - ${this.model}`;
+      }
+    }
+
+    class ElectricVehicle extends Vehicle {
+      constructor(name, model, batteryCapacity) {
+        super(name, model);
+        this.batteryCapacity = batteryCapacity;
+      }
+
+      getDetails() {
+        return `${this.name} - ${this.model} with Battery: ${this.batteryCapacity} kWh`;
+      }
+    }
+
+    const ev = new ElectricVehicle("Toyota", "Supra", 200);
+    document.getElementById("output").textContent = ev.getDetails();
+  </script>
+</body>
+</html>
+
